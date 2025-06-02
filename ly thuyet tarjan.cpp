@@ -79,12 +79,12 @@ void dfs(ll i,vector<ll>a[]){
 			if(low[x]>=num[i]) art[i]=1;
 			low[i]=min(low[x],low[i]);
 			cnt++;
+			if(num[x]==low[x]) bridge++;
 		}
 		else if(x!=parent[i]) {
 			low[i]=min(low[i],num[x]);
 		}
 	}
-	if(num[i]==low[i]&&parent[i]!=-1) bridge++;
 	if(parent[i]==-1){
 		if(cnt>1) {
 			art[i]=1; artp++;
@@ -93,7 +93,6 @@ void dfs(ll i,vector<ll>a[]){
 	else{
 		if(art[i]==1) artp++;
 	}
-	
 }
 int main(){
 	//freopen("in.inp","r",stdin);
